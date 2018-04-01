@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"os"
 
+	"./cusError"
 	"./modeldir"
 	"./modeldir/subidr"
 )
@@ -31,6 +33,13 @@ func main() {
 	refCheck2(&a1)
 	fmt.Println(a1)
 
+	file, err := os.Open("hoge.txt")
+	//独自のエラー処理を行う
+	if err != nil {
+		cusError.Error2()
+	}
+
+	fmt.Println(file)
 }
 
 func getMapData() []map[string]string {
