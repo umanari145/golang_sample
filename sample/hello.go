@@ -1,18 +1,18 @@
-package main
+package sample
 
 import (
 	"fmt"
 	"os"
 
-	"./cusError"
-	"./modeldir"
-	"./modeldir/subidr"
+	"../cusError"
+	"../modeldir"
+	"../modeldir/subidr"
 )
 
-func main() {
+func hoge() {
 	fmt.Println("filename main packge main")
-	mainhoge.TestA()
-	mainhoge.TestA2()
+	mainhoge.SampleA()
+	mainhoge.Sample2()
 
 	subhoge.TestB()
 	subhoge.TestB2()

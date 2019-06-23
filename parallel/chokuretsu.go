@@ -1,11 +1,11 @@
-package main
+package parallel
 
 import (
 	"log"
 	"time"
 )
 
-func main() {
+func chokuretsu() {
 	log.Print("started")
 
 	log.Print("sleep1 start")

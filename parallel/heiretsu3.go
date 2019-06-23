@@ -1,11 +1,11 @@
-package main
+package parallel
 
 import (
 	"log"
 	"time"
 )
 
-func main() {
+func heiretsu3() {
 	log.Print("started")
 	//https://qiita.com/suin/items/82ecb6f63ff4104d4f5d
 	sleep_finish := make(chan bool)

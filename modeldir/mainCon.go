@@ -2,6 +2,6 @@ package mainhoge
 
 import "fmt"
 
-func TestA() {
+func SampleA() {
 	fmt.Println("dir modeldir filename mainCon packge mainhoge")
 }
