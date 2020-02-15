@@ -1,5 +1,12 @@
 # golang_sample
 
+### プラグイン
+- go-plus
+  保存時の自動コンパイル、テストはうざいので設定で切ってもいいかも
+
+## 環境変数関連
+```go env``` で見れる。特にGO_ROOT,GO_PATHに注意。
+
 ## 並列直列に関して
 参考URL https://qiita.com/suin/items/82ecb6f63ff4104d4f5d
 - parallel
@@ -32,5 +39,15 @@ go test  -run ''
 go test  -run Dummy
 ```
 
-### プラグイン
-- go-plus
+## インポート(import)に関して
+
+- 標準のライブラリ
+- 相対パス
+- GO_PATHのものなど(主にライブラリ)
+
+## パッケージ
+http://cuto.unirita.co.jp/gostudy/post/go-package/
+
+ルール
+- 同一階層ではpackageを統一する必要がある(例外はテストコード)
+- フォルダ名とあっていなくてもいい    
