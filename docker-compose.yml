@@ -1,0 +1,30 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ./docker/go
+      dockerfile: Dockerfile
+    volumes:
+      - "./app:/go/src/app"
+    tty: true
+  db:
+    container_name: "db"
+    build:
+      context: ./docker/pgsql
+      dockerfile: Dockerfile
+    ports:
+     - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    volumes:
+        # 永続化することでコンテナ削除してもOK
+        - "./docker/pgsql/data:/var/lib/postgresql/data"
+        # dbスクリプト
+        - "./docker/pgsql/init:/docker-entrypoint-initdb.d"
+    networks:
+     - golang
+
+networks:
+  golang:
+    driver: "bridge"
