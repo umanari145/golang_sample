@@ -14,7 +14,7 @@ CREATE TABLE persons (
   delivery_address1 varchar(100) DEFAULT '',
   delivery_address2 varchar(100) DEFAULT '',
   traffic json DEFAULT NULL,
-  contents texte,
+  contents text,
   created_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   updated_at timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 )
