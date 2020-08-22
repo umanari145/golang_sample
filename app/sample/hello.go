@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"../cusError"
-	"../modeldir"
-	"../modeldir/subidr"
+	mainhoge "../modeldir"
+	subhoge "../modeldir/subidr"
 )
 
 func hoge() {
@@ -91,8 +91,13 @@ func refCheck2(a *Animal) {
 	a.Age = 99
 }
 
+//Animal は動物の構造体
 type Animal struct {
 	Name string
 	Age  int
 	Pref string
+}
+
+func (animal Animal) toShow() {
+	fmt.Printf("name:%s age:%d Pref:%s", animal.Name, animal.Age, animal.Pref)
 }
