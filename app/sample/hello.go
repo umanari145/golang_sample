@@ -98,6 +98,19 @@ type Animal struct {
 	Pref string
 }
 
+//構造体のメソッド作成
 func (animal Animal) toShow() {
 	fmt.Printf("name:%s age:%d Pref:%s", animal.Name, animal.Age, animal.Pref)
+}
+
+//Interface型を使いたい時
+func sampleInterface() {
+	//任意の型を使うことができる
+	//どんな型が来るかわからないときに使用可能
+	var a interface{}
+	a = 2
+	fmt.Println(a)
+
+	a = "aaaa"
+	fmt.Println(a)
 }

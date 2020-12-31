@@ -60,6 +60,10 @@ go test  -run ''
 #特定文字列を含むメソッドのみ
 go test  -run Dummy
 ```
+## interface型
+
+sample/hello.goのsampleInterface
+
 
 ## インポート(import)に関して
 
@@ -84,4 +88,4 @@ http://cuto.unirita.co.jp/gostudy/post/go-package/
 - gocode-gomod
 - godef
 - goreturns
-- golint
+- golint 静的解析ツール

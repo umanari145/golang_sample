@@ -23,3 +23,7 @@ func TestAnimal(t *testing.T) {
 
 	animal.toShow()
 }
+
+func TestInterface(t *testing.T) {
+	sampleInterface()
+}
