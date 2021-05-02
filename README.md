@@ -89,3 +89,6 @@ http://cuto.unirita.co.jp/gostudy/post/go-package/
 - godef
 - goreturns
 - golint 静的解析ツール
+
+## 環境変数の読み込み
+source load_environment
