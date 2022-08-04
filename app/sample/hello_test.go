@@ -27,3 +27,9 @@ func TestAnimal(t *testing.T) {
 func TestInterface(t *testing.T) {
 	sampleInterface()
 }
+
+func Testf1(t *testing.T) {
+	var a, b = f1()
+	fmt.Println(a)
+	fmt.Println(b)
+}

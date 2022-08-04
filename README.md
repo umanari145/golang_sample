@@ -11,6 +11,8 @@
 https://play.golang.org/
 ### 基礎文法
 
+https://www.amazon.co.jp/gp/product/B07HDMR6S5/ref=ku_mi_rw_edp_ku<br>
+参照
 
 ####  スコープ
 
@@ -25,9 +27,15 @@ func main(){
 
 ```
 
-### 配列
+### 配列とスライスの違い
 
-同一の型の値を「予め決められた個数分」保持するためのデータ
+同一の型の値を「予め決められた個数分」保持するためのデータ<br>
+スライスは「可変長の配列」<br>
+配列との違いは
+- 定義時にサイズを指定しない
+- 要素のサイズが変更できる
+- ゼロ値が"nil"※後述
+
 
 ```
 // 配列の宣言
@@ -36,22 +44,12 @@ b := [2]int{999, 888}    
 a[0] = "hoge"
 ```
 
-### スライス
-
-
-スライスは「可変長の配列」
-配列との違いは
-- 定義時にサイズを指定しない
-- 要素のサイズが変更できる
-- ゼロ値が"nil"※後述
-
 ```
 // スライスの宣言
 var a []string    
 b := []int{999, 888}
 
 ```
-
 
 ### 構造体
 
@@ -86,17 +84,6 @@ p = &a
 fmt.Println(p)
 ```
 
-### map
-
-```
-m := map[string]int{"key1":999, "key2":888}
-// 要素の追加
-m["key3"] = 111// 要素への代入
-m["key2"] = 666// 要素の参照
-fmt.Println(m["key2"], m["key3"])
-
-```
-
 ### 型変換
 
 ```
@@ -104,8 +91,6 @@ var a int = 999
 var b int16 = 1
 var c int = a + int(b)    
 fmt.Println(c)
-
-
 ```
 
 ### 独自の型
@@ -132,14 +117,66 @@ obj = []string{"honda", "toyota", "mazda"}
 fmt.Println(obj)
 ```
 
+### errのよく出る書き方
 
-### go run
+```
+err := doError()
+if err != nil {
+  // エラー時の処理
+  fmt.Print(err)
+}
+
+if err := doError(); err != nil {
+  // エラー時の処理
+  fmt.Print(err)
+}
+
+func doError() error{
+  return errors.New("error")
+}
+```
+
+### メソッドの可変長引数
+```
+func sum(n ...int) int {
+	fmt.Println(n)
+
+	sum := 0
+	for i, v := range n {
+		sum += v
+		fmt.Println("インデックス:", i, "値:", v, "・・・現在の合計:", sum)
+	}
+	return sum
+}
+
+func main() {
+	x := sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+	fmt.Println("引数で渡した数の総和:", x)
+}
+
+```
+
+### 複数の引数
+
+```
+func f1() (int, string) {
+	return 999, "hoge"
+}
+
+func main() {
+	var a, b = f1()
+	fmt.Println(a)
+	fmt.Println(b)
+}
+```
+
+## go run
 コンパイル型なのでソース段階で動かすためには
 ```
 go run main.go
 
 ```
-### go build
+## go build
 バイナリファイルの作成
 ```
 go build -o ファイル名　
@@ -149,7 +186,7 @@ go build -o ファイル名　
 ```
 
 
-### プラグイン
+## プラグイン
 - go-plus(atom)
   保存時の自動コンパイル、テストはうざいので設定で切ってもいいかも
 

@@ -114,3 +114,7 @@ func sampleInterface() {
 	a = "aaaa"
 	fmt.Println(a)
 }
+
+func f1() (int, string) {
+	return 999, "hoge"
+}
