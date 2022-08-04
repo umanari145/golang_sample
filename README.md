@@ -1,6 +1,137 @@
 # golang_sample
 
-### 基礎
+## 特徴
+
+- 並行処理
+- 高速コンパイル
+- 並列処理に強い
+
+
+## sandbox
+https://play.golang.org/
+### 基礎文法
+
+
+####  スコープ
+
+```
+// グローバル変数
+var a int = 999
+func main(){
+    // ローカル変数
+    b := 1
+    fmt.Println(a + b)
+}
+
+```
+
+### 配列
+
+同一の型の値を「予め決められた個数分」保持するためのデータ
+
+```
+// 配列の宣言
+var a [3]string    
+b := [2]int{999, 888}    
+a[0] = "hoge"
+```
+
+### スライス
+
+
+スライスは「可変長の配列」
+配列との違いは
+- 定義時にサイズを指定しない
+- 要素のサイズが変更できる
+- ゼロ値が"nil"※後述
+
+```
+// スライスの宣言
+var a []string    
+b := []int{999, 888}
+
+```
+
+
+### 構造体
+
+```
+// 構造体の宣言
+type MyStruct struct{
+    a string    
+    b int
+}
+
+type MyStruct2 struct{
+    MyStruct // 構造体のネストが可能
+    c int
+}
+
+var st MyStruct
+st.a = "hoge"    
+fmt.Println(st.a)
+var st2 MyStruct2    
+st2.a = "fuga" // 参照元の構造体メンバへのアクセス    
+st2.c = 999    
+fmt.Println(st2.a, st2.c)
+
+```
+
+### ポインタ
+
+```
+var p *int// int型の変数
+a := 10// 変数aのアドレスを取得
+p = &a
+fmt.Println(p)
+```
+
+### map
+
+```
+m := map[string]int{"key1":999, "key2":888}
+// 要素の追加
+m["key3"] = 111// 要素への代入
+m["key2"] = 666// 要素の参照
+fmt.Println(m["key2"], m["key3"])
+
+```
+
+### 型変換
+
+```
+var a int = 999
+var b int16 = 1
+var c int = a + int(b)    
+fmt.Println(c)
+
+
+```
+
+### 独自の型
+```
+# intをベースにした独自の型で変換ができない
+type MyInt int
+
+```
+
+
+### interface
+任意の型を取れる
+
+```
+var obj interface{}
+
+obj = 1
+fmt.Println(obj)
+
+obj = "hoge"
+fmt.Println(obj)
+
+obj = []string{"honda", "toyota", "mazda"}
+fmt.Println(obj)
+```
+
 
 ### go run
 コンパイル型なのでソース段階で動かすためには

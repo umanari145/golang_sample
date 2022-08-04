@@ -1,6 +1,7 @@
 version: '3'
 services:
   app:
+    container_name: "gosample_app"
     build:
       context: ./docker/go
       dockerfile: Dockerfile
@@ -10,7 +11,7 @@ services:
     ports:
       - "8080:8080"    
   db:
-    container_name: "db"
+    container_name: "gosample_db"
     build:
       context: ./docker/pgsql
       dockerfile: Dockerfile
